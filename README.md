@@ -7,7 +7,7 @@ Built as a portfolio project with a focus on clean architecture, polished UI, an
 ## Tech Stack
 
 - **Next.js 16** (App Router)
-- **JavaScript** (no TypeScript)
+- **React (js)** (no TypeScript)
 - **SCSS** (CSS Modules with `.module.scss`)
 - **Zustand** (state management + localStorage persistence)
 - **TMDB API** (movie and TV data)
