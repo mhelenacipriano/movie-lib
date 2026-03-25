@@ -1,0 +1,71 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  max-width: 1200px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  padding: 8px 18px;
+  border-radius: $radius-lg;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid $border-color;
+  color: $text-secondary;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $white;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: $gradient-primary;
+    border-color: transparent;
+    color: $white;
+  }
+}
+
+.subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.subTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: $text-muted;
+  font-size: 15px;
+
+  .emptyIcon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+  }
+}
