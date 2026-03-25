@@ -2,10 +2,12 @@
 
 import { posterUrl } from '@/lib/api/tmdb';
 import { useFavoritesStore } from '@/store/favorites';
+import { useDetailPanel } from './DetailPanelProvider';
 import styles from './MediaCard.module.scss';
 
 export default function MediaCard({ item, mediaType }) {
   const { addFavorite, removeFavorite, isFavorite } = useFavoritesStore();
+  const openDetail = useDetailPanel();
   const type = mediaType || item.media_type || 'movie';
   const favorited = isFavorite(item.id, type);
 
@@ -34,7 +36,11 @@ export default function MediaCard({ item, mediaType }) {
   };
 
   return (
-    <div className={styles.card}>
+    <button
+      className={styles.card}
+      type="button"
+      onClick={() => openDetail(item, type)}
+    >
       <div className={styles.poster}>
         {poster ? (
           <img src={poster} alt={title} loading="lazy" />
@@ -58,7 +64,7 @@ export default function MediaCard({ item, mediaType }) {
           {rating && <span className={styles.rating}>★ {rating}</span>}
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 

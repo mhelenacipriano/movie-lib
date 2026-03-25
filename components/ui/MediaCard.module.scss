@@ -12,6 +12,11 @@
   border: 1px solid $border-color;
   transition: all $transition-normal;
   cursor: pointer;
+  padding: 0;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  width: 100%;
 
   &:hover {
     transform: translateY(-4px) scale(1.02);
