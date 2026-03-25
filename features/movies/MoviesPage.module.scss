@@ -1,0 +1,80 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  max-width: 1200px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: $text-secondary;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.searchBox {
+  position: relative;
+  width: 280px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $text-muted;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 14px 8px 34px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  font-size: 13px;
+  outline: none;
+  transition: all $transition-normal;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $electric-blue;
+    box-shadow: 0 0 12px rgba($electric-blue, 0.2);
+  }
+}
+
+.searchResults {
+  @include glass;
+  border-radius: $radius-lg;
+  padding: 20px;
+  margin-bottom: 32px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .searchHint {
+    color: $text-muted;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+}
