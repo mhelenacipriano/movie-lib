@@ -1,0 +1,50 @@
+@use "../../styles/variables" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 32px;
+  padding: 16px 0;
+}
+
+.pageBtn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-secondary;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-color;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    color: $white;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba($electric-blue, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background: $electric-blue;
+    border-color: $electric-blue;
+    color: $white;
+    font-weight: 600;
+  }
+}
+
+.ellipsis {
+  color: $text-muted;
+  font-size: 13px;
+  padding: 0 4px;
+}
