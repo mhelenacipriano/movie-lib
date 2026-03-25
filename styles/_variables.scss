@@ -1,0 +1,54 @@
+@use "sass:color";
+
+// Colors
+$deep-blue: #0F172A;
+$deep-blue-light: #1E293B;
+$deep-blue-lighter: #334155;
+$electric-blue: #1D4ED8;
+$purple: #7C3AED;
+$pink-accent: #DB2777;
+$cyan-glow: #06B6D4;
+$white: #F8FAFC;
+$text-secondary: #94A3B8;
+$text-muted: #64748B;
+$border-color: rgba(255, 255, 255, 0.08);
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $electric-blue, $purple, $pink-accent);
+$gradient-bg: linear-gradient(135deg, $deep-blue 0%, color.adjust($purple, $lightness: -30%) 50%, color.adjust($pink-accent, $lightness: -30%) 100%);
+$gradient-card: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+$gradient-sidebar: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+
+// Glass
+$glass-bg: rgba(30, 41, 59, 0.6);
+$glass-border: rgba(255, 255, 255, 0.1);
+$glass-blur: blur(12px);
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+$shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
+$shadow-glow-blue: 0 0 20px rgba(29, 78, 216, 0.3);
+$shadow-glow-pink: 0 0 20px rgba(219, 39, 119, 0.3);
+
+// Layout
+$sidebar-width: 240px;
+$topbar-height: 64px;
+
+// Border radius
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+$radius-xl: 20px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow: 400ms ease;
+
+// Breakpoints
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
