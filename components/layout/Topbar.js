@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
-import { useState, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import styles from './Topbar.module.scss';
 
 const pageNames = {
@@ -15,20 +15,25 @@ export default function Topbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [query, setQuery] = useState('');
+  const debounceRef = useRef(null);
 
   const pageName = pageNames[pathname] || 'Home';
 
-  const handleSearch = useCallback((e) => {
-    e.preventDefault();
-    const trimmed = query.trim();
-    if (!trimmed) return;
-
-    if (pathname === '/tv') {
-      router.push(`/tv?search=${encodeURIComponent(trimmed)}`);
+  const navigateSearch = (value) => {
+    const trimmed = value.trim();
+    const target = pathname === '/tv' ? '/tv' : '/movies';
+    if (trimmed) {
+      router.push(`${target}?search=${encodeURIComponent(trimmed)}`);
     } else {
-      router.push(`/movies?search=${encodeURIComponent(trimmed)}`);
+      router.push(target);
     }
-  }, [query, pathname, router]);
+  };
+
+  const handleChange = (value) => {
+    setQuery(value);
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => navigateSearch(value), 400);
+  };
 
   return (
     <header className={styles.topbar}>
@@ -38,16 +43,16 @@ export default function Topbar() {
           <span className={styles.current}>{pageName}</span>
         </div>
 
-        <form onSubmit={handleSearch} className={styles.searchWrapper}>
+        <div className={styles.searchWrapper}>
           <span className={styles.searchIcon}>🔍</span>
           <input
             type="text"
             className={styles.searchInput}
             placeholder="Search movies or TV shows"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
           />
-        </form>
+        </div>
       </div>
 
       <div className={styles.actions}>
