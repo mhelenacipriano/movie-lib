@@ -1,0 +1,38 @@
+@use "../../styles/variables" as *;
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: $deep-blue;
+}
+
+.main {
+  margin-left: $sidebar-width;
+  margin-top: $topbar-height;
+  flex: 1;
+  padding: 24px;
+  min-height: calc(100vh - $topbar-height);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(
+      ellipse at top right,
+      rgba($purple, 0.12) 0%,
+      rgba($pink-accent, 0.06) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
